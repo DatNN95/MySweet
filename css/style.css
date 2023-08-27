@@ -449,6 +449,10 @@ button:focus{
 	color: #dd666c;
 	/* text-decoration: underline; */
 }
+.about-main-info {
+	background-color: #ece8e7;
+	padding: 0 15px;
+}
 .about-main-info h2{
 	font-size: 40px;
 	/* font-family: 'Marck Script', cursive; */
