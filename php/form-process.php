@@ -1,50 +1,24 @@
 <?php
 
 $errorMSG = "";
-
 // NAME
 if (empty($_POST["name"])) {
     $errorMSG = "Name is required ";
 } else {
     $name = $_POST["name"];
 }
-
 // EMAIL
 if (empty($_POST["email"])) {
     $errorMSG .= "Email is required ";
 } else {
     $email = $_POST["email"];
 }
-
 // PHONE
 if (empty($_POST["phone"])) {
     $errorMSG = "Phone number is required ";
 } else {
-    $name = $_POST["phone"];
+    $phone = $_POST["phone"];
 }
-
-// // EMAIL
-// if (empty($_POST["email"])) {
-//     $errorMSG .= "Email is required ";
-// } else {
-//     $email = $_POST["email"];
-// }
-
-// // MSG Guest
-// if (empty($_POST["guest"])) {
-//     $errorMSG .= "Subject is required ";
-// } else {
-//     $guest = $_POST["guest"];
-// }
-
-
-// // MSG Event
-// if (empty($_POST["event"])) {
-//     $errorMSG .= "Subject is required ";
-// } else {
-//     $event = $_POST["event"];
-// }
-
 
 // MESSAGE
 if (empty($_POST["message"])) {
@@ -53,6 +27,12 @@ if (empty($_POST["message"])) {
     $message = $_POST["message"];
 }
 
+// // MSG Guest
+// if (empty($_POST["guest"])) {
+//     $errorMSG .= "Subject is required ";
+// } else {
+//     $guest = $_POST["guest"];
+// }
 
 $EmailTo = "ngocdatnguyen1995@gmail.com";
 $Subject = "New Message From My Real Wedding";
@@ -76,14 +56,12 @@ $Body .= "\n";
 $success = mail($EmailTo, $Subject, $Body, "From:".$email);
 
 // redirect to success page
-if ($success && $errorMSG == ""){
-   echo "success";
-}else{
-    if($errorMSG == ""){
-        echo "Something went wrong :(";
-    } else {
-        echo $errorMSG;
-    }
+if ($success && $errorMSG == "") {
+    echo "success";
+} elseif ($errorMSG == "") {
+    echo "Something went wrong :(";
+} else {
+    echo $errorMSG;
 }
 
 ?>
